@@ -3,7 +3,7 @@
 Created on Tue Aug  4 18:56:48 2020
 
 @author: Ivan Perehiniak
-@project: Logic Analiser
+@project: Logic Analyzer
 """
 from __future__ import print_function
 from tkinter import *
@@ -187,7 +187,7 @@ class i2c(Frame) :
         self.decode_state1.append(1-self.decode_state1[-1])
         self.decode_state2.append(1-self.decode_state2[-1])
     
-class LogicAnaliser :
+class LogicAnalyzer :
     def __init__(self,master) :
         self.master = master
         
@@ -703,14 +703,14 @@ class LogicAnaliser :
             self.STB31["state"] = "disabled"
 
     def ft_init(self):
-        #Get the device list and save the index of logic analiser into deviceIndex
+        #Get the device list and save the index of logic analyzer into deviceIndex
         self.deviceList = ftd2xx.listDevices(0) # returns the list of ftdi devices S/Ns 
         self.deviceIndex = -1;
         self.status = -1;
         if self.deviceList : 
              print(len(self.deviceList), 'ftdi devices found')
              for x in range(0,len(self.deviceList)):
-                 if ( "LogicAnaliser" in str(ftd2xx.getDeviceInfoDetail(x)['description'])) :
+                 if ( "LogicAnalyzer" in str(ftd2xx.getDeviceInfoDetail(x)['description'])) :
                      print("Device %d details: "%x)
                      print('-------------------------------------------------')
                      print("Serial : " + str(ftd2xx.getDeviceInfoDetail(x)['serial']))
@@ -737,7 +737,7 @@ class LogicAnaliser :
        
         elif ftd2xx.listDevices(0):
              print("no FTDI devices to be connected")
-             self.messagebox.showinfo(title=None, message="Logic Analiser was not found")
+             self.messagebox.showinfo(title=None, message="Logic Analyzer was not found")
 
 
     def disconnect(self):
@@ -1064,8 +1064,8 @@ class LogicAnaliser :
 def main(): 
     root = Tk()
     root.geometry("1250x700")
-    root.wm_title("LogicAnaliser")
-    app = LogicAnaliser(root)
+    root.wm_title("LogicAnalyzer")
+    app = LogicAnalyzer(root)
     root.mainloop()
     
 if __name__ == '__main__':
