@@ -1,5 +1,5 @@
 # Logic_Analyzer_User_Interface
-User interface for logic analyser. Made in Python  
+User interface for logic analyzer. Made in Python  
 
 LogAn.py - main file with i2c default decoder  
 la_uart.py - dynamicaly loaded uart decoder  
